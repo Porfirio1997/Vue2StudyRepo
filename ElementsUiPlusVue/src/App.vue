@@ -2,8 +2,8 @@
   <div id="app">
     <header>
       <nav>
-        <router-link to="/">Home</router-link>
-        <router-link to="/cadastradas">About</router-link>
+        <router-link to="/">Cadastrar</router-link>
+        <router-link to="/cadastradas">Cadastrados</router-link>
       </nav>
     </header>
     <main></main>
@@ -12,10 +12,7 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-const input = ref("");
-</script>
+<script setup></script>
 
 <style scoped>
 header {
