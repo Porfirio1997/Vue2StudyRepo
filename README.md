@@ -1,2 +1,2 @@
 # Vue2StudyRepo
-Vue 2 withelements UI app repository
+Vue 2 with elements UI app repository
