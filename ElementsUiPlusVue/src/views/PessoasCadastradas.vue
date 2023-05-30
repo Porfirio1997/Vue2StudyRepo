@@ -11,13 +11,11 @@
 
 <script>
 export default {
-  /*
   computed: {
     Registrados() {
       return this.$store.getters.persons;
     },
   },
-  */
 };
 </script>
 

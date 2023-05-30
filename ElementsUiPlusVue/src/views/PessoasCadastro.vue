@@ -91,7 +91,7 @@ const pickerOptions = {
       </LabeledInput>
     </el-row>
     <br />
-    <el-button type="success" :onclick="cadastrar">Success</el-button>
+    <el-button type="success" :onclick="cadastrar">Cadastrar</el-button>
   </fieldset>
 </template>
 
