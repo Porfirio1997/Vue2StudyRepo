@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-//import axios from "axios";
+import axios from "axios";
 const store = createStore({
   state() {
     return {
@@ -28,7 +28,6 @@ const store = createStore({
     },
   },
   actions: {
-    /*
     fetchPersons({ commit }) {
       axios
         .get("/api/person")
@@ -71,7 +70,6 @@ const store = createStore({
           }
         });
     },
-    */
   },
 });
 
