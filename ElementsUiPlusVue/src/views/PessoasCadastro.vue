@@ -1,24 +1,22 @@
-<script setup>
+<script>
 import { ref } from "vue";
-import LabeledInput from "../components/LabeledInput.vue";
-const Person = ref({
-  name: ref(""),
-  age: ref(0),
-  height: ref(0.0),
-  weight: ref(0.0),
-  sex: ref("M"),
-  datebirth: ref(""),
-});
-
-let cadastrar = () => {
-  this.$store.dispatch("addperson", Person);
-};
-const pickerOptions = {
-  disabledDate(time) {
-    return time.getTime() > Date.now();
-  },
-  shortcuts: [
-    /*
+export default {
+  data: function () {
+    return {
+      Person: ref({
+        name: ref(""),
+        age: ref(0),
+        height: ref(0.0),
+        weight: ref(0.0),
+        sex: ref("M"),
+        datebirth: ref(""),
+      }),
+      pickerOptions: {
+        disabledDate(time) {
+          return time.getTime() > Date.now();
+        },
+        shortcuts: [
+          /*
     {
       text: "Today",
       onClick(picker) {
@@ -26,21 +24,29 @@ const pickerOptions = {
       },
     },
     */
-  ],
+        ],
+      },
+    };
+  },
+  components: {},
+  methods: {
+    cadastrar: function () {
+      this.$store.commit("addPerson", this.Person);
+    },
+  },
+  computed: {},
 };
 </script>
 
 <template>
   <fieldset>
     <legend>Formulário de entrada de pessoal</legend>
-
-    <el-row :span="100">
-      <LabeledInput msg="Nome">
+    <el-form ref="Person" :model="Person" label-width="120px">
+      <el-form-item label="Nome">
         <el-input placeholder="Nome" v-model="Person.name"></el-input>
-      </LabeledInput>
-    </el-row>
-    <el-row :span="100">
-      <LabeledInput msg="Idade">
+      </el-form-item>
+
+      <el-form-item label="Idade">
         <el-input-number
           v-model="Person.age"
           :precision="0"
@@ -48,10 +54,9 @@ const pickerOptions = {
           :min="1"
           :max="110"
         ></el-input-number>
-      </LabeledInput>
-    </el-row>
-    <el-row :span="100">
-      <LabeledInput msg="Altura">
+      </el-form-item>
+
+      <el-form-item label="Altura">
         <el-input-number
           v-model="Person.height"
           :precision="2"
@@ -59,10 +64,9 @@ const pickerOptions = {
           :min="0"
           :max="3"
         ></el-input-number>
-      </LabeledInput>
-    </el-row>
-    <el-row :span="100">
-      <LabeledInput msg="Peso">
+      </el-form-item>
+
+      <el-form-item label="Peso">
         <el-input-number
           v-model="Person.weight"
           :precision="2"
@@ -70,17 +74,14 @@ const pickerOptions = {
           :min="0"
           :max="500"
         ></el-input-number>
-      </LabeledInput>
-    </el-row>
-    <el-row :span="100">
-      <LabeledInput msg="Sexo">
+      </el-form-item>
+
+      <el-form-item label="Sexo">
         <el-radio v-model="Person.sex" label="F">Feminino</el-radio>
         <el-radio v-model="Person.sex" label="M">Masculino</el-radio>
-      </LabeledInput>
-    </el-row>
+      </el-form-item>
 
-    <el-row :span="50">
-      <LabeledInput msg="Data de Nascimento">
+      <el-form-item label="Data de Nascimento">
         <el-date-picker
           v-model="Person.datebirth"
           type="date"
@@ -88,10 +89,10 @@ const pickerOptions = {
           :picker-options="pickerOptions"
         >
         </el-date-picker>
-      </LabeledInput>
-    </el-row>
+      </el-form-item>
+    </el-form>
     <br />
-    <el-button type="success" :onclick="cadastrar">Cadastrar</el-button>
+    <el-button type="success" @click="cadastrar">Cadastrar</el-button>
   </fieldset>
 </template>
 

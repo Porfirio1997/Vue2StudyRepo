@@ -13,7 +13,16 @@ export default new Vuex.Store({
   },
   getters: {
     persons(state) {
-      return state.persons;
+      return state.persons.map((el) => {
+        let objectDate = new Date(el.datebirth);
+        let day = objectDate.getDate();
+        let month = objectDate.getMonth();
+        console.log(month + 1); // 8
+        let year = objectDate.getFullYear();
+        console.log(year); // 2022
+        el.datebirth = `${month}/${day}/${year}`;
+        return el;
+      });
     },
   },
   mutations: {

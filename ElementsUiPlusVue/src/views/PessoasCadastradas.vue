@@ -1,12 +1,17 @@
 <template>
-  <el-col :span="24">
-    <el-row type="flex">
-      <div class="grid-content bg-purple-dark">
-        <h1>Pessoas já cadastradas</h1>
-        <h6>{{ Registrados }}</h6>
-      </div>
-    </el-row>
-  </el-col>
+  <div>
+    <el-table :data="Registrados" style="width: 100%">
+      <el-table-column prop="name" label="Nome" width="180"> </el-table-column>
+      <el-table-column prop="age" label="Idade" width="180"> </el-table-column>
+      <el-table-column prop="height" label="Altura"> </el-table-column>
+
+      <el-table-column prop="weight" label="Peso"> </el-table-column>
+      <el-table-column prop="sex" label="Sexo"> </el-table-column>
+      <el-table-column prop="datebirth" label="Data de nascimento">
+      </el-table-column>
+    </el-table>
+    {{ Registrados }}
+  </div>
 </template>
 
 <script>
@@ -20,4 +25,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+el-table-column {
+  word-break: break-all;
+}
+</style>
