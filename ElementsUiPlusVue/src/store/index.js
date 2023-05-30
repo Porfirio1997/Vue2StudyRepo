@@ -1,7 +1,11 @@
-import { createStore } from "vuex";
 import axios from "axios";
 
-const store = createStore({
+import Vue from "vue";
+import Vuex from "vuex";
+
+// const store = createStore({
+Vue.use(Vuex);
+export default new Vuex.Store({
   state() {
     return {
       persons: [],
@@ -74,4 +78,4 @@ const store = createStore({
   },
 });
 
-export default store;
+// export default store;

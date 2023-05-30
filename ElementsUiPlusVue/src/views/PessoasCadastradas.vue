@@ -3,7 +3,7 @@
     <el-row type="flex">
       <div class="grid-content bg-purple-dark">
         <h1>Pessoas já cadastradas</h1>
-        <!-- <h6>{{ Registrados }}</h6> -->
+        <h6>{{ Registrados }}</h6>
       </div>
     </el-row>
   </el-col>
@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  methods: {},
   computed: {
     Registrados() {
       return this.$store.getters.persons;
