@@ -42,6 +42,7 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    // Adicionar tratamento dos retornos do Axios em classe util.
     fetchPersons({ commit }) {
       axios
         .get("/api/person")
